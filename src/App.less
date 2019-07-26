@@ -1,0 +1,99 @@
+@import '~antd/dist/antd.css';
+
+.default-theme{
+  min-width: 1200px;
+  background-color: #dfebf1;
+  margin-bottom: 0px;
+}
+
+.banner {
+  min-width: 800px;
+  position: relative;
+  width: 100%;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  height: 250px;
+}
+.page{
+  position: relative;
+  z-index: 0;
+  min-width: 1200px;
+  overflow-y: hidden;
+  
+  margin-bottom: 0;
+}
+.channel {
+  margin-top: 0px;
+  flex:none;
+  padding: 20px;
+  width: 100%;
+  height: 100px;
+
+}
+.mainContainer {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.container-left {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  width: 865px;
+  vertical-align: top;
+}
+.container-right {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (min-width: 1152px) {
+  .mainContainer {
+      display: block;
+      width: 1152px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
+.video-container {
+  margin: 20px;
+  flex: none;
+  position: relative;
+}
+
+.video-container:before {
+  display: block;
+  content: "";
+  width: 100%;
+}
+
+.video-container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+}
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+

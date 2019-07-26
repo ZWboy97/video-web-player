@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import VideoPlayer from './Player';
+import './App.css'
+import { AlitaProvider, setConfig } from 'redux-alita';  // https://github.com/yezihaohao/redux-alita
 import './index.css';
 
 
-ReactDOM.render(<VideoPlayer/>, document.getElementById('root'));
+ReactDOM.render(
+    <AlitaProvider>
+        <VideoPlayer/>
+    </AlitaProvider>
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-//serviceWorker.unregister();
+, document.getElementById('root'));
+

@@ -4,13 +4,17 @@
   "private": true,
   "dependencies": {
     "antd": "^3.20.5",
+    "axios": "^0.19.0",
     "flux": "^3.1.3",
     "flv.js": "^1.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-infinite-scroller": "^1.2.4",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
+    "redux-alita": "^2.1.1",
     "reflv": "0.0.1",
+    "reqwest": "^2.0.5",
     "video-react": "^0.14.0"
   },
   "scripts": {

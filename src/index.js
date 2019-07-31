@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import VideoPlayer from './Player';
-import './App.css'
-import { AlitaProvider, setConfig } from 'redux-alita';  // https://github.com/yezihaohao/redux-alita
 import './index.css';
+import './App.css';
+import VideoPlayer from './Player';
+import IndexPage from './IndexPage';
+import { AlitaProvider, setConfig } from 'redux-alita';
 
 
 ReactDOM.render(
     <AlitaProvider>
-        <VideoPlayer/>
+        <IndexPage />
     </AlitaProvider>
-
-, document.getElementById('root'));
+    , document.getElementById('root'));
 

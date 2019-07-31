@@ -75,7 +75,7 @@ class videoPlayer extends Component {
     submitting: false,
     value: '',
     barrList: [],
-    onBarrage:true,
+    onBarrage: true,
   }
 
   componentDidMount() {
@@ -227,7 +227,7 @@ class videoPlayer extends Component {
   };
   onBarrage = (unCheckedChildren) => {
     this.setState({
-      onBarrage:false
+      onBarrage: false
     })
   }
 
@@ -253,15 +253,7 @@ class videoPlayer extends Component {
       width: "100%",
       textAlign: "center",
     }
-    const Editor = ({ onChange, onSubmit, submitting, value }) => (
-      <div>
-        
-          <TextArea rows={4} onChange={onChange} value={value} />
-          <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
-            添加弹幕
-              </Button>
-      </div>
-    );
+
     const CommentList = ({ comments }) => (
       <List
         dataSource={comments}
@@ -329,27 +321,27 @@ class videoPlayer extends Component {
 
                 <Col span={18}>
                   <div >
-                    <Barrage barrageList={barrList} color={colorConfig} visible={this.state.onBarrage}/>
+                    <Barrage barrageList={barrList} color={colorConfig} visible={this.state.onBarrage} />
                     <Reflv
                       url={'http://39.106.194.43:8090/live360/1458248448.flv'}
                       type="flv">
                     </Reflv>
                   </div>
                   <div>
-                    <Row type="flex" align="center" style={{backgroundColor:"#FCFCFC"}}>
+                    <Row type="flex" align="center" style={{ backgroundColor: "#FCFCFC" }}>
                       <Col span={21}>
-                        <div style={{margin:"10px"}}>
-                        弹幕<Switch size="small" checkedChildren="开" unCheckedChildren="关" defaultChecked onChange={this.onBarrage}/>
+                        <div style={{ margin: "10px" }}>
+                          弹幕<Switch size="small" checkedChildren="开" unCheckedChildren="关" defaultChecked onChange={this.onBarrage} />
                         </div>
                       </Col>
                       <Col span={1}>
-                      <Icon type="wechat" style={{ fontSize: '30px',marginRight:"0px"}} />
+                        <Icon type="wechat" style={{ fontSize: '30px', marginRight: "0px" }} />
                       </Col>
                       <Col span={1}>
-                      <Icon type="weibo" style={{ fontSize: '30px',marginRight:"0px"}} />
+                        <Icon type="weibo" style={{ fontSize: '30px', marginRight: "0px" }} />
                       </Col>
                       <Col span={1}>
-                      <Icon type="qq" style={{ fontSize: '30px',marginRight:"0px"}} />
+                        <Icon type="qq" style={{ fontSize: '30px', marginRight: "0px" }} />
                       </Col>
                     </Row>
                   </div>
@@ -393,14 +385,14 @@ class videoPlayer extends Component {
                       {comments.length > 0 && <CommentList comments={comments} />}
 
                       <div>
-        
-        <TextArea rows={4} onChange={this.handleChange} value={this.state.value} />
-        <Button htmlType="submit" loading={this.submitting} onClick={this.handleSubmit} type="primary">
-          添加弹幕
-            </Button>
-    </div>
 
-                   
+                        <TextArea rows={4} onChange={this.handleChange} value={this.state.value} />
+                        <Button htmlType="submit" loading={this.submitting} onClick={this.handleSubmit} type="primary">
+                          添加弹幕
+            </Button>
+                      </div>
+
+
                     </div>
 
                     <div >

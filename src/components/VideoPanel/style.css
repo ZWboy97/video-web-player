@@ -1,0 +1,49 @@
+.video-control-panel{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.video-box{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background-color: #272727;
+}
+
+.video-box-header{
+    display: flex;
+    justify-content: flex-start;
+    height: 40px;
+    align-items: center;
+}
+
+.video-name{
+    align-self: center;
+    color: white;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+
+.video-status{
+    color: green;
+    font-size: 12px;
+    margin-left: 10px;
+    height: 15px;
+}
+
+.flv-video-player{
+    min-width: 800px;
+    width: 100%;
+}
+
+.video-box-control{
+    display: flex;
+    height: 30px;
+    color: #ffffff;
+    font-size: 15px;
+    justify-content: center;
+    align-content: center;
+}
+

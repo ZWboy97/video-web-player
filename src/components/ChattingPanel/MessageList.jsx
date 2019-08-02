@@ -7,42 +7,34 @@ import './style.css';
 
 //测试的数据
 const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
-const demo_loading_container = {
-    position: "absolute",
-    bottom: "40px",
-    width: "100%",
-    textAlign: "center",
-}
 
 class MessageList extends React.Component {
 
     state = { logining: false };
     state = { visible: false };
     state = {
-        data: [],
+        messages: ['werfasf', 'safdsafa', 'asdfasf', 'asdfasdf', 'asdfasdf', 'adfdsaf', 'sfasfdas', 'asdfasf', 'asdfasdf'],
         loading: false,
         hasMore: true,
         comments: [],
         submitting: false,
         value: '',
-        barrList: [],
-        onBarrage: true,
     }
 
     componentDidMount() {
-        this.fetchData(res => {
-            this.setState({
-                data: res.results,
-            });
-        });
+        // this.fetchData(res => {
+        //     this.setState({
+        //         data: res.results,
+        //     });
+        // });
     }
 
     handleInfiniteOnLoad = () => {
-        let { data } = this.state;
+        let { messages } = this.state;
         this.setState({
             loading: true,
         });
-        if (data.length > 14) {
+        if (messages.length > 14) {
             message.warning('Infinite List loaded all');
             this.setState({
                 hasMore: false,
@@ -51,10 +43,10 @@ class MessageList extends React.Component {
             return;
         }
         this.fetchData(res => {
-            data = data.concat(res.results);
+            messages = messages.concat(res.results);
 
             this.setState({
-                data,
+                messages,
                 loading: false,
             });
         });
@@ -87,7 +79,7 @@ class MessageList extends React.Component {
                 >
                     <List
                         className='list-box'
-                        dataSource={this.state.data}
+                        dataSource={this.state.messages}
                         renderItem={item => (
                             <List.Item
                                 key={item.id}

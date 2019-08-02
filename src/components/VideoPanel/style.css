@@ -36,6 +36,7 @@
 .flv-video-player{
     min-width: 800px;
     width: 100%;
+    max-height: 460px;
 }
 
 .video-box-control{

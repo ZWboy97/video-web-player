@@ -11,8 +11,9 @@ ReactDOM.render(
     <AlitaProvider>
         <Router>
             <Switch>
-                <Route path='/live/player' component={IndexPage} />
-                <Route path='/' component={NotFound} />
+                <Route exact path="/" render={() => <Redirect to="/live/player/" push />} />
+                <Route path='/live/player/' component={IndexPage} />
+                <Route path='/404' component={NotFound} />
             </Switch>
         </Router>
     </AlitaProvider>

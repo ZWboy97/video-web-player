@@ -65,6 +65,7 @@ class FlvPlayer extends Component {
             url: PropTypes.string.isRequired,
         })),
         config: PropTypes.object,
+        poster: PropTypes.string
     }
 
     initFlv = ($video) => {
@@ -73,6 +74,7 @@ class FlvPlayer extends Component {
                 let flvPlayer = flvjs.createPlayer({ ...this.props }, this.props.config);
                 flvPlayer.attachMediaElement($video);
                 flvPlayer.load();
+                flvPlayer.volume = this.props.volume || 0.5;
                 flvPlayer.play();
                 this.flvPlayer = flvPlayer;
             }
@@ -87,14 +89,15 @@ class FlvPlayer extends Component {
     }
 
     render() {
-        const { className, style } = this.props;
+        const { className, style, poster } = this.props;
         return (
             <video
                 className={className}
                 controls={true}
+                autoPlay
                 style={style}
                 ref={this.initFlv}
-                poster={require('../../picture.jpg')}
+                poster={poster}
             />
         )
     }

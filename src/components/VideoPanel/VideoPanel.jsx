@@ -1,5 +1,6 @@
 import React from 'react';
 import FlvPlayer from './FlvPlayer';
+import { connectAlita } from 'redux-alita';
 import './style.css';
 
 /**
@@ -7,27 +8,32 @@ import './style.css';
  */
 class VideoPanel extends React.Component {
 
-
     render() {
+        const { data } = this.props.alitaState.channel_info || {};
+        if (!data) {
+            return (<div></div>)
+        }
+        const { live_room_info = {} } = data || {}
+        console.log('flv url=', live_room_info.pull_http_flv_url)
         return (
             <div className='video-control-box'>
                 <div className='video-box'>
                     <div className='video-box-header'>
-                        <a className='video-name'>我的直播的名字</a>
-                        <img className="video-status" src={require('../../style/image/icon_live.png')}></img>
+                        <p className="video-name">{live_room_info.name || '未知'}</p>
+                        <img className="video-status" alt='' src={require('../../style/image/icon_live.png')}></img>
                     </div>
                     <FlvPlayer
                         className='flv-video-player'
-                        url={'http://39.106.194.43:8090/live360/1458248448.flv'}
+                        url={live_room_info.pull_http_flv_url}
+                        poster={live_room_info.picture_url}
                         type="flv" />
                     <div className='video-box-control'>
                         控制按钮
                     </div>
                 </div>
-
             </div>
         )
     }
 }
 
-export default VideoPanel;
+export default connectAlita()(VideoPanel);

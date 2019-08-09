@@ -5,7 +5,7 @@ import './App.css';
 import IndexPage from './IndexPage';
 import NotFound from './components/page/NotFound';
 import { AlitaProvider } from 'redux-alita';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 ReactDOM.render(
     <AlitaProvider>

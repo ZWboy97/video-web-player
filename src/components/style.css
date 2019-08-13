@@ -1,25 +1,11 @@
-.video-chatting-panel{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    flex-wrap:wrap;
-}
-
 .video-panel{
-    display: flex;
-    width: 60%;
-    min-width: 800px;
-    flex-grow: 1;
-    justify-content: center;
+    padding: 20px;
+    height: 600px;
 }
 
 .chatting-panel{
-    width: 350px;
-    height: 550px;
-    flex-grow: 1;
+    width: 400px;
+    height: 530px;
     margin-left: 10px;
     padding: 10px;
     border: 1px solid #e8e8e8;

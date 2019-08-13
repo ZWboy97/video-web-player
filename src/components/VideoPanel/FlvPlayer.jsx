@@ -98,6 +98,7 @@ class FlvPlayer extends Component {
                 style={style}
                 ref={this.initFlv}
                 poster={poster}
+                height="500px"
             />
         )
     }

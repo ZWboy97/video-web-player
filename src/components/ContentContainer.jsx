@@ -4,6 +4,7 @@ import HeaderAds from './Ads/HeaderAds'
 import LoginModal from './Modal/LoginModal';
 import VideoPanel from './VideoPanel/VideoPanel';
 import ChattingPanel from './ChattingPanel/ChattingPanel';
+import { Row, Col } from 'antd';
 
 class ContentContainer extends React.Component {
 
@@ -12,14 +13,18 @@ class ContentContainer extends React.Component {
             <div className='content-panel'>
                 <LoginModal />
                 <HeaderAds />
-                <div className='video-chatting-panel'>
-                    <div className='video-panel'>
-                        <VideoPanel />
-                    </div>
-                    <div className='chatting-panel'>
-                        <ChattingPanel />
-                    </div>
-                </div>
+                <Row type="flex" justify="space-around" align="middle">
+                    <Col span={16}>
+                        <div className='video-panel'>
+                            <VideoPanel />
+                        </div>
+                    </Col>
+                    <Col span={8}>
+                        <div className='chatting-panel'>
+                            <ChattingPanel />
+                        </div>
+                    </Col>
+                </Row>
             </div>
         )
     }

@@ -28,7 +28,7 @@ class VideoPanel extends React.Component {
                         poster={live_room_info.picture_url}
                         type="flv" />
                     <div className='video-box-control'>
-                        控制按钮
+                        控制面板
                     </div>
                 </div>
             </div>

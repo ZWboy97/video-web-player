@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../../style/image/404.png';
+import img from '../style/image/404.png';
 
 /**
  * 404 Not Found 页面

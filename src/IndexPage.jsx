@@ -2,7 +2,7 @@ import React from 'react';
 import './IndexPage.css';
 import { Layout } from 'antd';
 import HeaderContainer from './components/HeaderContainer';
-import ContentContainer from './components/ContentContainer';
+import ContentContainer from './page/LivePage';
 import FooterContainer from './components/FooterContainer';
 import { VCloudAPI } from './axios/apis';
 import { getUrlParam } from './utils/index';

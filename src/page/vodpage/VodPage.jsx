@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.less';
 import { Layout } from 'antd';
 import HeaderContainer from '../../components/HeaderContainer';
 import FooterContainer from '../../components/FooterContainer';
@@ -10,10 +10,8 @@ const { Header, Footer, Content } = Layout;
 
 class VodPage extends React.Component {
 
-
-
     render() {
-        return (<div>
+        return (<div className="page-container">
             <Header className='header-container'>
                 <HeaderContainer />
             </Header>

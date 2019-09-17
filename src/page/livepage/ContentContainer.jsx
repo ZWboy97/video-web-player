@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.less';
 import HeaderAds from 'mycomponents/Ads/HeaderAds'
 import LoginModal from 'mycomponents/Modal/LoginModal';
 import VideoPanel from 'mycomponents/VideoPanel/VideoPanel';

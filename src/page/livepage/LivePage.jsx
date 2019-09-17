@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.less';
 import { Layout } from 'antd';
 import HeaderContainer from 'mycomponents/HeaderContainer';
 import ContentContainer from 'mypage/livepage/ContentContainer';

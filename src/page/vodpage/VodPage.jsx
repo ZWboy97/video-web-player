@@ -3,6 +3,7 @@ import './style.less';
 import { Layout } from 'antd';
 import HeaderContainer from 'mycomponents/HeaderContainer';
 import FooterContainer from 'mycomponents/FooterContainer';
+import VodContent from './VodContent';
 import { VCloudAPI } from 'myaxios/apis';
 import { getUrlParam } from 'myutils/index';
 import { connectAlita } from 'redux-alita';
@@ -17,7 +18,7 @@ class VodPage extends React.Component {
             </Header>
 
             <Content className='content-container'>
-                这是视频点播界面
+                <VodContent></VodContent>
             </Content>
             <Footer className='footer-container' style={{ textAlign: 'center' }}>
                 <FooterContainer className="footer" />

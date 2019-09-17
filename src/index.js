@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import VideoPlayer from './Player';
-import './App.css'
-import { AlitaProvider, setConfig } from 'redux-alita';  // https://github.com/yezihaohao/redux-alita
-import './index.css';
-
+import './index.less';
+import LivePage from './page/livepage/LivePage';
+import VodPage from 'mypage/vodpage/VodPage';
+import NotFound from 'mypage/404page/NotFound';
+import { AlitaProvider } from 'redux-alita';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 ReactDOM.render(
-    <AlitaProvider>
-        <VideoPlayer/>
-    </AlitaProvider>
-
-, document.getElementById('root'));
+    <div className="content">
+        <AlitaProvider>
+            <Router>
+                <Switch>
+                    <Route exact path="/" render={() => <Redirect to="/vod/player" push />} />
+                    <Route path="/live/player" component={LivePage} />
+                    <Route path='/vod/player' component={VodPage}></Route>
+                    <Route component={NotFound} />
+                </Switch>
+            </Router>
+        </AlitaProvider>
+    </div>
+    , document.getElementById('root'));
 

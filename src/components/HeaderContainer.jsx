@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectAlita } from 'redux-alita';
 import { Button } from 'antd';
-
+import LoginModal from 'mycomponents/Modal/LoginModal';
 
 class HeaderContainer extends React.Component {
 
@@ -22,6 +22,7 @@ class HeaderContainer extends React.Component {
     render() {
         return (
             <div>
+                <LoginModal />
                 <Button className="login-button" type="primary" onClick={this.showLoginModal}>登陆</Button>
             </div>
         )

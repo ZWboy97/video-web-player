@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.less';
 import { Layout } from 'antd';
-import HeaderContainer from '../../components/HeaderContainer';
-import FooterContainer from '../../components/FooterContainer';
-import { VCloudAPI } from '../../axios/apis';
-import { getUrlParam } from '../../utils/index';
+import HeaderContainer from 'mycomponents/HeaderContainer';
+import FooterContainer from 'mycomponents/FooterContainer';
+import { VCloudAPI } from 'myaxios/apis';
+import { getUrlParam } from 'myutils/index';
 import { connectAlita } from 'redux-alita';
 const { Header, Footer, Content } = Layout;
 

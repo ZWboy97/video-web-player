@@ -1,11 +1,11 @@
 import React from 'react';
-import './IndexPage.css';
+import './style.css';
 import { Layout } from 'antd';
-import HeaderContainer from './components/HeaderContainer';
-import ContentContainer from './page/LivePage';
-import FooterContainer from './components/FooterContainer';
-import { VCloudAPI } from './axios/apis';
-import { getUrlParam } from './utils/index';
+import HeaderContainer from 'mycomponents/HeaderContainer';
+import ContentContainer from 'mypage/livepage/ContentContainer';
+import FooterContainer from 'mycomponents/FooterContainer';
+import { VCloudAPI } from 'myaxios/apis';
+import { getUrlParam } from 'myutils/index';
 import { connectAlita } from 'redux-alita';
 const { Header, Footer, Content } = Layout;
 

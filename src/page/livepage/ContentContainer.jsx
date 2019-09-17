@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.css';
-import HeaderAds from '../components/Ads/HeaderAds'
-import LoginModal from '../components/Modal/LoginModal';
-import VideoPanel from '../components/VideoPanel/VideoPanel';
-import ChattingPanel from '../components/ChattingPanel/ChattingPanel';
+import HeaderAds from 'mycomponents/Ads/HeaderAds'
+import LoginModal from 'mycomponents/Modal/LoginModal';
+import VideoPanel from 'mycomponents/VideoPanel/VideoPanel';
+import ChattingPanel from 'mycomponents/ChattingPanel/ChattingPanel';
 import { Row, Col } from 'antd';
 
 class ContentContainer extends React.Component {

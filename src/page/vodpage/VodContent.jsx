@@ -1,21 +1,22 @@
 import React from 'react';
 import './style.less';
-
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer'
+import VideoComment from '../../components/VideoPlayer/VideoComment'
+import VideoList from '../../components/VideoPlayer/VideoList'
 class VodContent extends React.Component {
 
     render() {
         return (<div className="vod-content">
             <div className="left-content">
                 <div className="video-content">
-                    视频组件
-
+                    <VideoPlayer/>
                 </div>
                 <div className="comment-content">
-                    评论组件
+                    <VideoComment/>
                 </div>
             </div>
             <div className="right-content">
-                视频列表组件
+                <VideoList/>
             </div>
 
         </div>)

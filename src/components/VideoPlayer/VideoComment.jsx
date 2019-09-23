@@ -1,7 +1,7 @@
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import React, { Component } from 'react';
-
+import {VCloudAPI} from "../../axios/apis";
 const { TextArea } = Input;
 
 const CommentList = ({ comments }) => (
@@ -32,7 +32,16 @@ class VideoComment extends Component {
         submitting: false,
         value: '',
     };
-
+    componentWillMount(){
+        VCloudAPI.get('/video/'+'1c2cea05-15f2-40a2-b05a142e-f1686189'+'/comments/').then(res=>{
+            console.log('结果',res)
+            let comments = []
+            for (let i = 0;i < res.data.data.length;i++){
+                let comment = {author:res.data.data[i].name,content:res.data.data[i].comment}
+                comments.push(comment)
+            }
+            this.setState({comments:comments})
+    })}
     handleSubmit = () => {
         if (!this.state.value) {
             return;
@@ -48,8 +57,7 @@ class VideoComment extends Component {
                 value: '',
                 comments: [
                     {
-                        author: 'Han Solo',
-                        avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+                        author: 'jyl',
                         content: <p>{this.state.value}</p>,
                         //datetime: moment().fromNow(),
                     },
@@ -57,6 +65,14 @@ class VideoComment extends Component {
                 ],
             });
         }, 1000);
+        let comment_data = {
+            aid:'FH3t1B2NMRqvuy54',
+            name:'jyl',
+            comment:this.state.value
+        }
+        VCloudAPI.post('/video/'+'1c2cea05-15f2-40a2-b05a142e-f1686189'+'/comment/add/',comment_data).then(res => {
+            console.log('response',res)
+        })
     };
 
     handleChange = e => {
@@ -74,7 +90,6 @@ class VideoComment extends Component {
                 <Comment
                     avatar={
                         <Avatar
-                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                             alt="Han Solo"
                         />
                     }

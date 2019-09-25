@@ -28,14 +28,29 @@
   display: flex;
   justify-content: space-around;
   .left-content{
-    flex: 3;
+    flex: 4;
     .video-content{
       background: #ffffff;
       min-height: 600px;
     }
     .comment-content{
+      position: relative;
+      top: 30px;
       min-height: 100px;
+      max-width: 1000px;
       background: #ffffff;
+    }
+    .intro-content{
+      min-height: 100px;
+      max-height: 100px;
+      max-width: 1000px;
+      background: #ffffff;
+      overflow-y: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .intro-content::-webkit-scrollbar {
+      width: 0px;
     }
   }
   .right-content{

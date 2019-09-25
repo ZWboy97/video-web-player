@@ -1,4 +1,4 @@
-import { Avatar, List } from 'antd';
+import { Row,Col, List } from 'antd';
 import React, { Component } from 'react';
 import {VCloudAPI} from "../../axios/apis";
 import {connectAlita} from 'redux-alita'
@@ -29,18 +29,24 @@ class VideoList extends Component{
             <div>
                 <List
                     size="large"
-                    header={<div>猜你想看</div>}
-                    //footer={<div>Footer</div>}
-                    //bordered
+                    header = {<div>猜你想看</div>}
                     dataSource = {this.state.data_src}
-                    renderItem={item => <List.Item>
+                    renderItem = {item => <List.Item>
                         <img
                             src={item.img}
                             width={100}
                         />
-                        <p>
-                            {item.title}
-                        </p>
+
+                                <a href={'http://localhost:3000/vod/player/?rid='+item.rid} style={{position:'relative',top:'-20px',minWidth:'100px',maxWidth:'100px'}}>
+                                    {item.title}
+                                </a>
+
+                                <p style={{position:'relative',top:'30px',left:'-100px',fontSize:'13px' ,minWidth:'100px'}}>
+                                    上传者：jyl &emsp;<br/>播放量：1000
+                                </p>
+
+
+
                     </List.Item>}
                 />
 

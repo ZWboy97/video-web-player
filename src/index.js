@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less';
 import LivePage from './page/livepage/LivePage';
-import VodPage from 'mypage/vodpage/VodPage';
-import NotFound from 'mypage/404page/NotFound';
+import VodPage from './page/vodpage/VodPage';
+import NotFound from './page/404page/NotFound';
 import { AlitaProvider } from 'redux-alita';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 

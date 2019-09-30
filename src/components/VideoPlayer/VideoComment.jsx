@@ -73,7 +73,7 @@ class VideoComment extends Component {
                 comments: [
                     {
                         author: 'jyl',
-                        content: <p>{this.state.value}</p>,
+                        content: this.state.value,
                         datetime: moment().format('YYYY-MM-DD HH:mm:ss'),
                     },
                     ...this.state.comments,

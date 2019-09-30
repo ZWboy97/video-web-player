@@ -1,25 +1,25 @@
 import React from 'react';
 import { Carousel } from 'antd';
-
+import { connectAlita } from 'redux-alita';
+import './style.less';
 
 
 class HeaderAds extends React.Component {
 
     render() {
+        const { data } = this.props.alitaState.channel_info || {};
+        if (!data) {
+            return (<div></div>)
+        }
+        const { ad_jump_url, ad_pic_url, ad_text } = data || {}
+
         return (
             <div >
                 <Carousel autoplay >
                     <div>
-                        <img src={require('../../style/image/banner.png')} />
-                    </div>
-                    <div>
-                        <h3>广告位2</h3>
-                    </div>
-                    <div>
-                        <h3>广告位3</h3>
-                    </div>
-                    <div>
-                        <h3>广告位4</h3>
+                        <a href={ad_jump_url} target="_blank">
+                            <span className="ad-text">{ad_text}</span>
+                        </a>
                     </div>
                 </Carousel>
             </div>
@@ -28,4 +28,4 @@ class HeaderAds extends React.Component {
 
 }
 
-export default HeaderAds;
+export default connectAlita()(HeaderAds);

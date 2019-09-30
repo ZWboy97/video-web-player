@@ -28,7 +28,7 @@ class VodContent extends React.Component {
         return (<div className="vod-content">
             <div className="left-content">
                 <div className="video-content">
-                    <VideoPlayer url={this.state.resource.res_url} title={this.state.resource.name} time={this.state.resource.time}/>
+                    <VideoPlayer url={this.state.resource.res_url} title={this.state.resource.name} time={this.state.resource.time} videoView={this.state.resource.video_view}/>
                 </div>
                 <div className="intro-content">
                     <VideoIntro intro={this.state.resource.intro}/>

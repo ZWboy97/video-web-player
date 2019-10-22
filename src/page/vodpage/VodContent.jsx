@@ -5,7 +5,8 @@ import VideoComment from '../../components/VideoPlayer/VideoComment'
 import VideoList from '../../components/VideoPlayer/VideoList'
 import { VCloudAPI } from "../../axios/apis";
 import PropTypes from 'prop-types';
-import VideoIntro from '../../components/VideoPlayer/VideoIntro'
+import VideoIntro from '../../components/VideoPlayer/VideoIntro';
+import { getUrlParam } from '../../utils/index';
 class VodContent extends React.Component {
     state = {
         resource: {}
@@ -14,10 +15,14 @@ class VodContent extends React.Component {
         rid: PropTypes.string.isRequired,
     }
     componentWillMount() {
-        VCloudAPI.get('/com/' + 'qWIaiFZTqkwbww6B' + '/resourse/?rid=' + this.props.rid).then(res => {
+        let rid = getUrlParam('rid');
+        let cid = getUrlParam('cid');
+        console.log('rid and cid ', rid, cid);
+        VCloudAPI.get(`/com/${cid}/resourse/?rid=${rid}`).then(res => {
             console.log('res:', res)
-            this.setState({ resource: res.data.data.resourse })
-            console.log('resource:', this.state.resource)
+            if (res.data.code === 200) {
+                this.setState({ resource: res.data.data.resourse })
+            }
         })
     }
     render() {

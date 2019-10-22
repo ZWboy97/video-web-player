@@ -2,28 +2,21 @@ import { List } from 'antd';
 import React, { Component } from 'react';
 import { VCloudAPI } from "../../axios/apis";
 import { Link, withRouter } from 'react-router-dom';
+import { getUrlParam } from '../../utils/index';
 class VideoList extends Component {
     state = {
         data_src: []
     }
     componentWillMount() {
-        VCloudAPI.get('/com/' + 'qWIaiFZTqkwbww6B' + '/videolist/').then(res => {
-            console.log('res', res)
+        let cid = getUrlParam('cid');
+        VCloudAPI.get('/com/' + cid + '/videolist/').then(res => {
             let data_src = []
             for (let i = 0; i < res.data.data.length; i++) {
                 let data = { img: res.data.data[i].pic_url, title: res.data.data[i].name, url: res.data.data[i].res_url, rid: res.data.data[i].rid }
                 data_src.push(data)
             }
-            this.setState({ data_src: data_src })
-            console.log(data_src)
-            console.log('hhhhhh', this.state.data_src)
-            //console.log(typeof(source))
+            this.setState({ data_src: data_src });
         })
-    }
-
-    linkToNewPage(e, rid) {
-        console.log('rid', rid)
-        this.props.history.push('/vod/player/?rid=' + rid);
     }
 
     render() {
@@ -34,8 +27,8 @@ class VideoList extends Component {
                     header={<div>猜你想看</div>}
                     dataSource={this.state.data_src}
                     renderItem={item =>
-                        <a href={'/vod/player/?rid=' + item.rid}>
-                            <List.Item>
+                        <a href={`/vod/player/?rid=${item.rid}&cid=${getUrlParam('cid')}&m_path=${getUrlParam('m_path')}`}>
+                            < List.Item >
                                 <img
                                     src={item.img}
                                     width={100}
@@ -62,7 +55,7 @@ class VideoList extends Component {
                     }
                 />
 
-            </div>
+            </div >
         )
     }
 

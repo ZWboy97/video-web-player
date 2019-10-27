@@ -1,7 +1,7 @@
 import { List } from 'antd';
 import React, { Component } from 'react';
 import { VCloudAPI } from "../../axios/apis";
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { getUrlParam } from '../../utils/index';
 class VideoList extends Component {
     state = {
@@ -9,6 +9,9 @@ class VideoList extends Component {
     }
     componentWillMount() {
         let cid = getUrlParam('cid');
+        if (!cid) {
+            return;
+        }
         VCloudAPI.get('/com/' + cid + '/videolist/').then(res => {
             let data_src = []
             for (let i = 0; i < res.data.data.length; i++) {

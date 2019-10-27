@@ -1,6 +1,8 @@
 import React from 'react';
 import FlvPlayer from './FlvPlayer';
 import { connectAlita } from 'redux-alita';
+import flvjs from 'flv.js/dist/flv.min.js';
+import DPlayer from 'react-dplayer';
 import './style.css';
 
 /**
@@ -22,11 +24,44 @@ class VideoPanel extends React.Component {
                         <p className="video-name">{live_room_info.name || '未知'}</p>
                         <img className="video-status" alt='' src={require('../../style/image/icon_live.png')}></img>
                     </div>
-                    <FlvPlayer
-                        className='flv-video-player'
-                        url={live_room_info.pull_http_flv_url}
-                        poster={live_room_info.picture_url}
-                        type="flv" />
+                    <DPlayer
+                        className="flv-video-player"
+                        options={{
+                            autoplay: true,
+                            live: true,
+                            hotkey: true,
+                            screenshot: true,
+                            mutex: true,
+                            volume: 0.1,
+                            video: {
+                                url: live_room_info.pull_http_flv_url,
+                                type: "customFlv",
+                                customType: {
+                                    customFlv: function (video, player) {
+                                        const flvplayer = flvjs.createPlayer({
+                                            type: 'flv',
+                                            url: video.src,
+                                        });
+                                        flvplayer.attachMediaElement(video);
+                                        flvplayer.load();
+                                    },
+                                },
+                                quality: [
+                                    {
+                                        name: '标清',
+                                        url: live_room_info.pull_http_flv_url,
+                                        type: 'customFlv',
+                                    },
+                                    {
+                                        name: '高清',
+                                        url: live_room_info.pull_http_flv_url,
+                                        type: 'customFlv',
+                                    },
+                                ],
+                                defaultQuality: 1,
+                            },
+                        }}
+                    />
                     <div className='video-box-control'>
                         控制面板
                     </div>

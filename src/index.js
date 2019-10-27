@@ -14,7 +14,7 @@ if (!IsPC()) {
     const mobile_path = getUrlParam('m_path');
     const channel_id = getUrlParam('channel_id');
     console.log('mobile_path', mobile_path, channel_id);
-    window.location.href = 'http://mobile.jackchance.cn/#' + mobile_path + "?channel_id=" + channel_id;
+    window.location.href = 'http://mobile.youmu.zwboy.cn/#' + mobile_path + "?channel_id=" + channel_id;
 }
 
 ReactDOM.render(

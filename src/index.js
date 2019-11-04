@@ -11,10 +11,12 @@ import { IsPC, getUrlParam } from './utils/index';
 if (!IsPC()) {
     console.log('location', window.location);
     const pathname = window.location.pathname;
-    const mobile_path = getUrlParam('m_path');
-    const channel_id = getUrlParam('channel_id');
-    console.log('mobile_path', mobile_path, channel_id);
-    window.location.href = 'http://mobile.youmu.zwboy.cn/#' + mobile_path + "?channel_id=" + channel_id;
+    const pathItem = pathname.split('/');
+    if (pathItem[1] === 'vod') {
+        window.location.href = 'http://mobile.youmu.zwboy.cn/#/live/display/?channel_id=' + pathItem[3];
+    } else if (pathItem[1] === 'live') {
+        window.location.href = 'http://mobile.youmu.zwboy.cn/#/live/display/?channel_id=' + pathItem[3];
+    }
 }
 
 ReactDOM.render(
@@ -23,8 +25,8 @@ ReactDOM.render(
             <Router>
                 <Switch>
                     <Route exact path="/" render={() => <Redirect to="/vod/player" push />} />
-                    <Route path="/live/player" component={LivePage} />
-                    <Route path='/vod/player' component={VodPage}></Route>
+                    <Route path="/live/player/:id" component={LivePage} />
+                    <Route path='/vod/player/:id' component={VodPage}></Route>
                     <Route component={NotFound} />
                 </Switch>
             </Router>

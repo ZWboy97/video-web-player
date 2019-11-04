@@ -6,7 +6,7 @@ import VodPage from './page/vodpage/VodPage';
 import NotFound from './page/404page/NotFound';
 import { AlitaProvider } from 'redux-alita';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { IsPC, getUrlParam } from './utils/index';
+import { IsPC } from './utils/index';
 
 if (!IsPC()) {
     console.log('location', window.location);

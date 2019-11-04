@@ -1,8 +1,9 @@
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import React, { Component } from 'react';
-import {VCloudAPI} from "../../axios/apis";
+import { VCloudAPI } from "../../axios/apis";
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 const { TextArea } = Input;
 
 
@@ -37,26 +38,28 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 
 class VideoComment extends Component {
     static propTypes = {
-        rid:PropTypes.string.isRequired,
+        rid: PropTypes.string.isRequired,
     }
     state = {
         comments: [],
         submitting: false,
         value: '',
     };
-    componentWillMount(){
-        VCloudAPI.get('/video/'+this.props.rid+'/comments/').then(res=>{
-            console.log('结果',res)
+    componentWillMount() {
+        const rid = this.props.match.params.id;
+        VCloudAPI.get('/video/' + rid + '/comments/').then(res => {
+            console.log('结果', res)
             let comments = []
             if (res.data.data != null) {
-                for (let i = 0;i < res.data.data.length;i++){
-                    let comment = {author:res.data.data[i].name,content:res.data.data[i].comment,datetime:res.data.data[i].ctime}
+                for (let i = 0; i < res.data.data.length; i++) {
+                    let comment = { author: res.data.data[i].name, content: res.data.data[i].comment, datetime: res.data.data[i].ctime }
                     comments.push(comment)
                 }
             }
 
-            this.setState({comments:comments})
-    })}
+            this.setState({ comments: comments })
+        })
+    }
     handleSubmit = () => {
         if (!this.state.value) {
             return;
@@ -81,13 +84,14 @@ class VideoComment extends Component {
             });
         }, 1000);
         let comment_data = {
-            aid:'FH3t1B2NMRqvuy54',
-            name:'jyl',
-            comment:this.state.value,
-            ctime:moment().format('YYYY-MM-DD HH:mm:ss')
+            aid: 'FH3t1B2NMRqvuy54',
+            name: 'jyl',
+            comment: this.state.value,
+            ctime: moment().format('YYYY-MM-DD HH:mm:ss')
         }
-        VCloudAPI.post('/video/'+this.props.rid+'/comment/add/',comment_data).then(res => {
-            console.log('response',res)
+        const rid = this.props.match.params.id;
+        VCloudAPI.post('/video/' + rid + '/comment/add/', comment_data).then(res => {
+            console.log('response', res)
         })
     };
 
@@ -124,4 +128,4 @@ class VideoComment extends Component {
     }
 }
 
-export default VideoComment
+export default withRouter(VideoComment);

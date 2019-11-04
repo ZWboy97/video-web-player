@@ -5,16 +5,17 @@ import HeaderContainer from 'mycomponents/HeaderContainer';
 import ContentContainer from 'mypage/livepage/ContentContainer';
 import FooterContainer from 'mycomponents/FooterContainer';
 import { VCloudAPI } from 'myaxios/apis';
-import { getUrlParam } from 'myutils/index';
 import { connectAlita } from 'redux-alita';
 const { Header, Footer, Content } = Layout;
 
 class IndexPage extends React.Component {
 
     componentDidMount() {
-        const channel_id = getUrlParam('channel_id');
-        console.log('channel_id:', channel_id);
-        VCloudAPI.get('/channel/info/?lid=' + channel_id).then(
+        const lid = this.props.match.params.id;
+        if (!lid) {
+            return;
+        }
+        VCloudAPI.get('/channel/info/?lid=' + lid).then(
             res => {
                 if (res.status !== 200) {
                     return

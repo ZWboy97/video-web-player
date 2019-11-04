@@ -23,8 +23,8 @@ ReactDOM.render(
             <Router>
                 <Switch>
                     <Route exact path="/" render={() => <Redirect to="/vod/player" push />} />
-                    <Route path="/live/player" component={LivePage} />
-                    <Route path='/vod/player' component={VodPage}></Route>
+                    <Route path="/live/player/:id" component={LivePage} />
+                    <Route path='/vod/player/:id' component={VodPage}></Route>
                     <Route component={NotFound} />
                 </Switch>
             </Router>

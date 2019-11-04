@@ -8,17 +8,15 @@ class VideoList extends Component {
         data_src: []
     }
     componentWillMount() {
-        let cid = getUrlParam('cid');
-        if (!cid) {
+        const rid = this.props.match.params.id;
+        if (!rid) {
             return;
         }
-        VCloudAPI.get('/com/' + cid + '/videolist/').then(res => {
-            let data_src = []
-            for (let i = 0; i < res.data.data.length; i++) {
-                let data = { img: res.data.data[i].pic_url, title: res.data.data[i].name, url: res.data.data[i].res_url, rid: res.data.data[i].rid }
-                data_src.push(data)
+        VCloudAPI.get(`/vod/recommend_list/?rid=${rid}`).then(res => {
+            console.log('rid:', res.data);
+            if (res && res.status === 200 && res.data && res.data.code === 200 && res.data.data) {
+                this.setState({ data_src: res.data.data });
             }
-            this.setState({ data_src: data_src });
         })
     }
 
@@ -30,10 +28,10 @@ class VideoList extends Component {
                     header={<div>猜你想看</div>}
                     dataSource={this.state.data_src}
                     renderItem={item =>
-                        <a href={`/vod/player/?rid=${item.rid}&cid=${getUrlParam('cid')}&m_path=${getUrlParam('m_path')}`}>
+                        <a href={`/vod/player/${item.rid}`}>
                             < List.Item >
                                 <img
-                                    src={item.img}
+                                    src={item.picture_url}
                                     width={100}
                                     alt=""
                                 />
@@ -44,14 +42,14 @@ class VideoList extends Component {
                                         color: '#000000', marginLeft: '5px',
                                         fontSize: '18px'
                                     }}>
-                                    {item.title}
+                                    {item.name}
                                 </div>
                                 <p style={{
                                     position: 'relative', top: '20px',
                                     left: '-100px', fontSize: '13px',
                                     minWidth: '100px', color: '#000000'
                                 }}>
-                                    上传者：jyl &emsp;<br />播放量：1000
+                                    播放量：{item.video_view}
                                 </p>
                             </List.Item>
                         </a>

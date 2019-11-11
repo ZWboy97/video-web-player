@@ -8,6 +8,7 @@ import PortalLiveList from './components/PortalLiveList';
 import PortalVodList from './components/PortalVodList';
 import HeaderContainer from 'mycomponents/HeaderContainer';
 import { VCloudAPI } from 'myaxios/apis';
+import FooterContainer from 'mycomponents/FooterContainer';
 import './style.less';
 const { Header, Footer, Content } = Layout;
 
@@ -68,6 +69,7 @@ class PortalPage extends React.Component {
                 </Content>
 
                 <Footer className='footer-container' style={{ textAlign: 'center' }}>
+                    <FooterContainer className="footer" />
                 </Footer>
 
             </div>

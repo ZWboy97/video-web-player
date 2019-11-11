@@ -9,8 +9,12 @@ class PortalRecommend extends React.Component {
     render() {
         return (
             <div className="recommend-container">
-                <div></div>
-                推荐列表
+                <div
+                    className="recommend-title"
+                >精彩推荐</div>
+                <div>
+                    下边是视频列表
+                </div>
             </div>
         )
     }
@@ -18,4 +22,4 @@ class PortalRecommend extends React.Component {
 }
 
 
-export default connectAlita()(withRouter(PortalRecommend));
+export default connectAlita(['portal_recommend_list'])(withRouter(PortalRecommend));

@@ -9,8 +9,13 @@ class PortalLiveList extends React.Component {
     render() {
         return (
             <div className="livelist-container">
-                视频门户
-
+                <div
+                    className="livelist-title">
+                    直播列表
+                </div>
+                <div>
+                    下边是直播列表
+                </div>
             </div>
         )
     }
@@ -18,4 +23,4 @@ class PortalLiveList extends React.Component {
 }
 
 
-export default connectAlita()(withRouter(PortalLiveList));
+export default connectAlita(['portal_live_list'])(withRouter(PortalLiveList));

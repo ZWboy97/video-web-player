@@ -29,7 +29,29 @@ class PortalPage extends React.Component {
                         })
                     }
                 }
-            })
+            });
+        VCloudAPI.get(`/mportal/${cid}/live/recommend_list/`)
+            .then(res => {
+                if (res && res.status === 200 && res.data) {
+                    if (res.data.code === 200) {
+                        this.props.setAlitaState({
+                            stateName: 'portal_recommend_list',
+                            data: res.data.data || []
+                        })
+                    }
+                }
+            });
+        VCloudAPI.get(`/mportal/${cid}/liveroom/list/`)
+            .then(res => {
+                if (res && res.status === 200 && res.data) {
+                    if (res.data.code === 200) {
+                        this.props.setAlitaState({
+                            stateName: 'portal_live_list',
+                            data: res.data.data || []
+                        })
+                    }
+                }
+            });
     }
 
     render() {

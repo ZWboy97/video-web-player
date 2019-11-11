@@ -4,6 +4,7 @@ import './index.less';
 import LivePage from './page/livepage/LivePage';
 import VodPage from './page/vodpage/VodPage';
 import NotFound from './page/404page/NotFound';
+import ProtalPage from './page/portalpage/PortalPage';
 import { AlitaProvider } from 'redux-alita';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { IsPC } from './utils/index';
@@ -27,6 +28,7 @@ ReactDOM.render(
                     <Route exact path="/" render={() => <Redirect to="/vod/player" push />} />
                     <Route path="/live/player/:id" component={LivePage} />
                     <Route path='/vod/player/:id' component={VodPage}></Route>
+                    <Route path='/portal/:id' component={ProtalPage}></Route>
                     <Route component={NotFound} />
                 </Switch>
             </Router>

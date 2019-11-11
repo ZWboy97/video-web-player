@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connectAlita } from 'redux-alita';
-import { Layout, message } from 'antd';
+import { Layout } from 'antd';
 import PortalBanner from './components/PortalBanner';
 import PortalRecommend from './components/PortalRecommend';
 import PortalLiveList from './components/PortalLiveList';
@@ -15,11 +15,14 @@ const { Header, Footer, Content } = Layout;
 class PortalPage extends React.Component {
 
     componentWillMount() {
-        VCloudAPI.get('/mportal/4ffDN2Ex9Xl6Q5i6/banner_list/')
+        const cid = this.props.match.params.id;
+        if (!cid || cid === "") {
+            return
+        }
+        VCloudAPI.get(`/mportal/${cid}/banner_list/`)
             .then(res => {
                 if (res && res.status === 200 && res.data) {
                     if (res.data.code === 200) {
-
                         this.props.setAlitaState({
                             stateName: 'portal_banner_list',
                             data: res.data.data || []

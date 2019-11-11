@@ -10,14 +10,15 @@ class PortalBanner extends React.Component {
     render() {
         const { data = [] } = this.props.portal_banner_list || {};
         const banner_list = data || [];
-        console.log('banner_lsit', banner_list)
         return (
             <div className="banner-container">
                 <Carousel autoplay className="carousel-container" >
                     {
-                        banner_list.map((item) => {
+                        banner_list.map((item, index) => {
                             return (
-                                <div className="banner-itme-container">
+                                <div
+                                    key={index}
+                                    className="banner-itme-container">
                                     <img
                                         className="banner-item-img"
                                         src={item.picture_url}

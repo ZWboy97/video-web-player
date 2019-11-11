@@ -26,7 +26,7 @@ class RichVideoItem extends React.Component {
 }
 
 RichVideoItem.propTypes = {
-    itemInfo: PropTypes.string
+    itemInfo: PropTypes.object
 }
 
 

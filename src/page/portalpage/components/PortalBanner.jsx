@@ -19,13 +19,17 @@ class PortalBanner extends React.Component {
                                 <div
                                     key={index}
                                     className="banner-itme-container">
-                                    <img
-                                        className="banner-item-img"
-                                        src={item.picture_url}
-                                        alt={item.name} />
-                                    <div className="banner-item-title">
-                                        {item.name}
-                                    </div>
+                                    <a
+                                        href={item.display_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img
+                                            className="banner-item-img"
+                                            src={item.picture_url}
+                                            alt={item.name} />
+                                    </a>
+
                                 </div>
                             )
                         })

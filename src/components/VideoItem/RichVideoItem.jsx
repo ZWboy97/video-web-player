@@ -10,10 +10,15 @@ class RichVideoItem extends React.Component {
         }
         return (
             <div className="rich-video-item-container">
-                <img src={itemInfo.picture_url} alt="图片不存在" />
-                <div>
-                    {itemInfo.name}
-                </div>
+                <a
+                    href={itemInfo.display_url}
+                    target="_target"
+                    rel="noopener noreferrer">
+                    <img src={itemInfo.picture_url} alt="图片不存在" />
+                    <div className="video-item-name">
+                        {itemInfo.name}
+                    </div>
+                </a>
             </div>
         )
     }

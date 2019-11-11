@@ -17,6 +17,8 @@ if (!IsPC()) {
         window.location.href = 'http://mobile.youmu.zwboy.cn/#/live/display/?channel_id=' + pathItem[3];
     } else if (pathItem[1] === 'live') {
         window.location.href = 'http://mobile.youmu.zwboy.cn/#/live/display/?channel_id=' + pathItem[3];
+    } else if (pathItem[1] === 'portal') {
+        window.location.href = 'http://mobile.youmu.zwboy.cn/#/portal?cid=' + pathItem[2];
     }
 }
 

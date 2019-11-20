@@ -16,11 +16,14 @@ class HeaderAds extends React.Component {
         return (
             <div >
                 <Carousel autoplay >
-                    <div>
-                        <a href={ad_jump_url} target="_blank">
-                            <span className="ad-text">{ad_text}</span>
-                        </a>
-                    </div>
+                    <a href={ad_jump_url} target="_blank">
+                        <div className="ad-content">
+                            {
+                                ad_pic_url ? <img src={ad_pic_url}></img> : ""
+                            }
+                            {/* <span className="ad-text">{ad_text}</span> */}
+                        </div>
+                    </a>
                 </Carousel>
             </div>
         )

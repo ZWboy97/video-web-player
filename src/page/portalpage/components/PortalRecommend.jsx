@@ -10,13 +10,6 @@ class PortalRecommend extends React.Component {
 
     render() {
         const { data = [] } = this.props.portal_recommend_list || [];
-        // todo
-        data.map((item) => {
-            data.push(item);
-            data.push(item);
-            data.push(item);
-            data.push(item);
-        })
         return (
             <div className="recommend-container">
                 <div

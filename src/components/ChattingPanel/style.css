@@ -1,0 +1,35 @@
+.chatting-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-height: 530px;
+}
+
+.scroll-box{
+    height: 400px;
+}
+
+.message-list {
+    width: 100%;
+    height: 150px;
+}
+
+.message-input{
+    width:100%;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.loading-container {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.message-submit-button{
+    margin-top: 10px;
+    width: 100%;
+}

@@ -53,6 +53,17 @@ class PortalPage extends React.Component {
                     }
                 }
             });
+        VCloudAPI.get(`/mportal/${cid}/vod/list/`)
+            .then(res => {
+                if (res && res.status === 200 && res.data) {
+                    if (res.data.code === 200) {
+                        this.props.setAlitaState({
+                            stateName: 'portal_video_list',
+                            data: res.data.data || []
+                        })
+                    }
+                }
+            });
     }
 
     render() {

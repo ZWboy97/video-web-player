@@ -9,7 +9,7 @@ import './style.less';
 class PortalVodList extends React.Component {
 
     render() {
-        const { data = [] } = this.props.portal_recommend_list || [];
+        const { data = [] } = this.props.portal_video_list || [];
         return (
             <div className="vodlist-container">
                 <div
@@ -34,4 +34,4 @@ class PortalVodList extends React.Component {
 }
 
 
-export default connectAlita(['portal_recommend_list'])(withRouter(PortalVodList));
+export default connectAlita(['portal_video_list'])(withRouter(PortalVodList));

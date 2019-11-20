@@ -14,11 +14,11 @@ if (!IsPC()) {
     const pathname = window.location.pathname;
     const pathItem = pathname.split('/');
     if (pathItem[1] === 'vod') {
-        window.location.href = 'http://mobile.youmu.zwboy.cn/#/live/display/?channel_id=' + pathItem[3];
+        window.location.href = 'http://mobile.youmuvideo.com/#/live/display/?channel_id=' + pathItem[3];
     } else if (pathItem[1] === 'live') {
-        window.location.href = 'http://mobile.youmu.zwboy.cn/#/live/display/?channel_id=' + pathItem[3];
+        window.location.href = 'http://mobile.youmuvideo.com/#/live/display/?channel_id=' + pathItem[3];
     } else if (pathItem[1] === 'portal') {
-        window.location.href = 'http://mobile.youmu.zwboy.cn/#/portal?cid=' + pathItem[2];
+        window.location.href = 'http://mobile.youmuvideo.com/#/portal?cid=' + pathItem[2];
     }
 }
 

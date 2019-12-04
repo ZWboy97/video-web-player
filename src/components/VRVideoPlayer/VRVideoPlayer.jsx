@@ -1,11 +1,8 @@
 import React from 'react';
-import './style.less';
 import { AVR, VR } from './lib/mxreality';
 import * as THREE from 'three';
+import PropTypes from 'prop-types';
 
-/**
- * 用于实现各种测试demo 
- */
 class VRPlayer extends React.Component {
 
     componentDidMount() {
@@ -49,21 +46,11 @@ class VRPlayer extends React.Component {
         vr.init(function () {
 
         });
-
-        vr.playPanorama('http://39.106.194.43:8090/live/sq3oOJjN6s.flv', vr.resType.flvVideo);
-
-
-
-
+        const url = this.props.url;
+        vr.playPanorama(url, vr.resType.flvVideo);
         vr.video.onended = function () {
         }
-
     }
-
-
-
-
-
 
     render() {
         const mwidth = this.props.width || '100%';
@@ -82,6 +69,12 @@ class VRPlayer extends React.Component {
             </div >
         )
     }
+}
+
+VRPlayer.props = {
+    width: PropTypes.string,
+    height: PropTypes.string,
+    url: PropTypes.string.isRequired
 }
 
 export default VRPlayer;

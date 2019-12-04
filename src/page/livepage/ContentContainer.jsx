@@ -3,26 +3,22 @@ import './style.less';
 import HeaderAds from 'mycomponents/Ads/HeaderAds'
 import VideoPanel from 'mycomponents/VideoPanel/VideoPanel';
 import ChattingPanel from 'mycomponents/ChattingPanel/ChattingPanel';
-import { Row, Col } from 'antd';
 
 class ContentContainer extends React.Component {
 
     render() {
         return (
-            <div className='content-panel'>
-                <HeaderAds />
-                <Row type="flex" justify="space-around" align="middle">
-                    <Col span={16}>
-                        <div className='video-panel'>
-                            <VideoPanel />
-                        </div>
-                    </Col>
-                    <Col span={8}>
-                        <div className='chatting-panel'>
-                            <ChattingPanel />
-                        </div>
-                    </Col>
-                </Row>
+            <div >
+                <HeaderAds className="header-ads" />
+                <div className='content-panel'>
+                    <div className='video-panel'>
+                        <VideoPanel />
+                    </div>
+                    <div className='chatting-panel'>
+                        <ChattingPanel />
+                    </div>
+                </div>
+
             </div>
         )
     }

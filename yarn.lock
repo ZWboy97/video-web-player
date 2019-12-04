@@ -5155,6 +5155,14 @@ import-local@^2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
+imports-loader@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/imports-loader/-/imports-loader-0.8.0.tgz#030ea51b8ca05977c40a3abfd9b4088fe0be9a69"
+  integrity sha512-kXWL7Scp8KQ4552ZcdVTeaQCZSLW+e6nJfp3cwUMB673T7Hr98Xjx5JK+ql7ADlJUvj1JS5O01RLbKoutN5QDQ==
+  dependencies:
+    loader-utils "^1.0.2"
+    source-map "^0.6.1"
+
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
@@ -10433,6 +10441,11 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+three@^0.111.0:
+  version "0.111.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.111.0.tgz#9cedb73e79b7f6bf2440cb67a273f883faa923b6"
+  integrity sha512-AcTqyGJ3H75AIusOuADy0LsP958QKQwm/YhABHFMzd6RFXPNVay1rlSbbG6WYv7KM72G2THMMwqbjQd4dVHMkQ==
 
 throat@^4.0.0:
   version "4.1.0"

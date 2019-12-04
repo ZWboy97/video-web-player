@@ -1,23 +1,22 @@
-.video-control-panel{
+.video-control-panel {
     display: flex;
-    width: 100%;
     justify-content: center;
 }
 
-.video-box{
+.video-box {
     display: flex;
     flex-direction: column;
     background-color: #272727;
 }
 
-.video-box-header{
+.video-box-header {
     display: flex;
     justify-content: flex-start;
     height: 40px;
     align-items: center;
 }
 
-.video-name{
+.video-name {
     align-self: center;
     color: white;
     font-size: 18px;
@@ -25,18 +24,18 @@
     margin-bottom: 2px;
 }
 
-.video-status{
+.video-status {
     color: green;
     font-size: 12px;
     margin-left: 10px;
     height: 15px;
 }
 
-.flv-video-player{
-    width: 100%; 
+.flv-video-player {
+    width: 100%;
 }
 
-.video-box-control{
+.video-box-control {
     display: flex;
     height: 30px;
     color: #ffffff;
@@ -44,4 +43,3 @@
     justify-content: center;
     align-content: center;
 }
-

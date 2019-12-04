@@ -41,8 +41,8 @@ class ChattingPanel extends React.Component {
     render() {
         return (
             <div className='chatting-box'>
-                <MessageList className='message-list' />
-                <TextArea className='message-input' rows={2}
+                <MessageList />
+                <TextArea className='message-input' rows={3}
                     value={this.state.textValue}
                     onChange={(e) => this.handleChange(e)} />
                 <Button className='message-submit-button'

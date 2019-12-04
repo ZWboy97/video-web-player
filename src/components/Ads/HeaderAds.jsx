@@ -12,19 +12,19 @@ class HeaderAds extends React.Component {
             return (<div></div>)
         }
         const { ad_jump_url, ad_pic_url, ad_text } = data || {}
-
         return (
             <div >
-                <Carousel autoplay >
-                    <a href={ad_jump_url} target="_blank">
-                        <div className="ad-content">
-                            {
-                                ad_pic_url ? <img src={ad_pic_url}></img> : ""
-                            }
-                            {/* <span className="ad-text">{ad_text}</span> */}
-                        </div>
-                    </a>
-                </Carousel>
+
+                <div className="ad-content">
+                    {
+                        ad_pic_url ?
+                            <a href={ad_jump_url} target="_blank">
+                                <img src={ad_pic_url}></img>
+                            </a>
+                            :
+                            ""
+                    }
+                </div>
             </div>
         )
     }

@@ -1,13 +1,9 @@
 import React from 'react';
 //滚动窗口
-import reqwest from 'reqwest';
 import InfiniteScroll from 'react-infinite-scroller';
-import { List, Spin, message, Avatar, Input, Button, Icon, Row, Col, Divider, Tooltip } from 'antd';
+import { List, Avatar, Row, Col } from 'antd';
 import './style.css';
 import { connectAlita } from 'redux-alita';
-
-//测试的数据
-const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
 class MessageList extends React.Component {
 
@@ -38,21 +34,18 @@ class MessageList extends React.Component {
         this.messagesEnd.scrollIntoView({ behavior: "smooth" });
     }
 
-
-
-
     render() {
         const { message_list_content = {} } = this.props.alitaState || {};
         const { data = {} } = message_list_content || {}
         const { messageInfo = [] } = data || {}
         console.log(messageInfo)
         return (
-            <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+            <div style={{ width: '100%', height: "400px", overflow: 'auto' }}>
                 <InfiniteScroll
                     className='scroll-box'
                     initialLoad={false}
                     pageStart={0}
-                    useWindow={false}
+                    useWindow={true}
                 >
                     <List
                         className="list-box"
@@ -60,25 +53,19 @@ class MessageList extends React.Component {
                         renderItem={item => (
                             <List.Item ref={this.setTextInputRef} key={item.id}>
                                 <Row>
-                                    <Col span={19}>
-                                        <List.Item.Meta
-                                            avatar={
-                                                <Avatar src="http://pic-cloud-bupt.oss-cn-beijing.aliyuncs.com/3QbpEyjbGT.png" />
-                                            }
-                                            title={<a href="https://ant.design">{item.name}</a>}
-                                            description={<div className="item-content">{item.content}</div>}
-                                        />
-                                    </Col>
+                                    <div>
+                                        <Avatar
+                                            className="message-avatar"
+                                            src="http://pic-cloud-bupt.oss-cn-beijing.aliyuncs.com/3QbpEyjbGT.png" />
+                                        <span
+                                            className="message-name"
+                                        >{item.name}</span>
+                                    </div>
+                                    <div className="message-content">{item.content}</div>
                                 </Row>
-
                             </List.Item>
                         )}
                     >
-                        {/* {this.state.loading && this.state.hasMore && (
-                            <div className="loading-container">
-                                <Spin />
-                            </div>
-                        )} */}
                     </List>
                     <div style={{ float: "left", clear: "both" }} ref={(el) => { this.messagesEnd = el; }} />
                 </InfiniteScroll>

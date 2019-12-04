@@ -35,6 +35,10 @@ class IndexPage extends React.Component {
     render() {
         return (
             <Layout >
+                <img
+                    className="bg-image"
+                    src="https://youmucloud.oss-cn-beijing.aliyuncs.com/pic/backgroud-image.jpg"
+                    alt="" />
                 <Header className='header-container'>
                     <HeaderContainer />
                 </Header>
@@ -43,9 +47,9 @@ class IndexPage extends React.Component {
                     <ContentContainer />
                 </Content>
 
-                <Footer className='footer-container' style={{ textAlign: 'center' }}>
+                <div className='footer-container' style={{ textAlign: 'center' }}>
                     <FooterContainer className="footer" />
-                </Footer>
+                </div>
             </Layout>
         )
     }
